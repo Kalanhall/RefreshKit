@@ -1,0 +1,27 @@
+{
+  "name": "RefreshKit",
+  "version": "1.0.0",
+  "summary": "Swift Refresh",
+  "description": "简介：\nSwift 版 刷新控件.",
+  "homepage": "https://github.com/Kalanhall",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Kalanhall@163.com": "Kalan"
+  },
+  "source": {
+    "git": "https://github.com/Kalanhall/RefreshKit.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "RefreshKit/Classes/**/*",
+  "resource_bundles": {
+    "RefreshKit": [
+      "RefreshKit/Assets/**/*"
+    ]
+  }
+}

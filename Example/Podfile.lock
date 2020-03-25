@@ -1,0 +1,16 @@
+PODS:
+  - RefreshKit (1.0.0)
+
+DEPENDENCIES:
+  - RefreshKit (from `../`)
+
+EXTERNAL SOURCES:
+  RefreshKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  RefreshKit: 955b647715dd95aa5e014721a48ca531a84d7994
+
+PODFILE CHECKSUM: 1dd317f770f668f4c0e2272c58764a8b588a135f
+
+COCOAPODS: 1.8.3
