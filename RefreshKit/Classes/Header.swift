@@ -99,6 +99,8 @@ open class DefaultRefreshHeader: UIView, RefreshableHeader {
         }
     }
     
+    public var refreshHeight: CGFloat = RefreshKitConst.defaultHeaderHeight
+    
     #if swift(>=4.2)
     public let indicator:UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
     #else
@@ -147,7 +149,7 @@ open class DefaultRefreshHeader: UIView, RefreshableHeader {
     
     // MARK: - Refreshable  -
     public func heightForHeader() -> CGFloat {
-        return RefreshKitConst.defaultHeaderHeight
+        return refreshHeight
     }
     
     public func percentUpdateDuringScrolling(_ percent: CGFloat) {

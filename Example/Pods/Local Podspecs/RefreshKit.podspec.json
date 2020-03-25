@@ -1,6 +1,6 @@
 {
   "name": "RefreshKit",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "summary": "Swift Refresh",
   "description": "简介：\nSwift 版 刷新控件.",
   "homepage": "https://github.com/Kalanhall",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/Kalanhall/RefreshKit.git",
-    "tag": "1.0.0"
+    "tag": "1.0.2"
   },
   "platforms": {
     "ios": "8.0"

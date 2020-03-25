@@ -37,9 +37,12 @@ public enum RefreshKitLeftRightText{
 }
 @objcMembers
 open class DefaultRefreshLeft: UIView, RefreshableLeftRight {
+    
     public static func left()->DefaultRefreshLeft{
         return DefaultRefreshLeft(frame: CGRect(x: 0, y: 0, width: RefreshKitConst.defaultLeftWidth, height: UIScreen.main.bounds.size.height))
     }
+    
+    public var refreshWidth: CGFloat = RefreshKitConst.defaultRightWidth
     public let imageView:UIImageView = UIImageView()
     public let textLabel:UILabel  = UILabel()
     fileprivate var textDic = [RefreshKitLeftRightText:String]()
@@ -77,7 +80,7 @@ open class DefaultRefreshLeft: UIView, RefreshableLeftRight {
     }
 // MARK: - RefreshableLeftRight Protocol  -
     open func widthForComponent() -> CGFloat {
-        return RefreshKitConst.defaultRightWidth
+        return refreshWidth
     }
     open func percentUpdateDuringScrolling(_ percent:CGFloat){
         if percent > 1.0{

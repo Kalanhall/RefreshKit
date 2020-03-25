@@ -13,6 +13,8 @@ open class DefaultRefreshRight:UIView, RefreshableLeftRight {
     public static func right()->DefaultRefreshRight{
         return DefaultRefreshRight(frame: CGRect(x: 0, y: 0, width: RefreshKitConst.defaultRightWidth, height: UIScreen.main.bounds.size.height))
     }
+    
+    public var refreshWidth: CGFloat = RefreshKitConst.defaultRightWidth
     public let imageView:UIImageView = UIImageView()
     public let textLabel:UILabel  = UILabel()
     fileprivate var textDic = [RefreshKitLeftRightText:String]()
@@ -24,6 +26,7 @@ open class DefaultRefreshRight:UIView, RefreshableLeftRight {
         textDic[mode] = text
         textLabel.text = textDic[.scrollToAction]
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(imageView)
@@ -38,18 +41,22 @@ open class DefaultRefreshRight:UIView, RefreshableLeftRight {
         textDic[.releaseToAction] = RefreshKitRightString.releaseToViewMore
         textLabel.text = textDic[.scrollToAction]
     }
+    
     public  required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     open override func layoutSubviews() {
         super.layoutSubviews()
         textLabel.frame = CGRect(x: 30,y: 0,width: 20,height: frame.size.height)
         imageView.center = CGPoint(x: 10,y: frame.size.height/2)
     }
+    
     // MARK: - RefreshableLeftRight Protocol  -
     open func widthForComponent() -> CGFloat {
-        return RefreshKitConst.defaultRightWidth
+        return refreshWidth
     }
+    
     open func percentUpdateDuringScrolling(_ percent:CGFloat){
         if percent > 1.0{
             guard self.imageView.transform == CGAffineTransform.identity else{
@@ -70,13 +77,16 @@ open class DefaultRefreshRight:UIView, RefreshableLeftRight {
             })
         }
     }
+    
     open func didCompleteHideAnimation() {
         imageView.transform = CGAffineTransform.identity
         textLabel.text = textDic[.scrollToAction]
     }
+    
     open  func didBeginRefreshing() {
         
     }
+    
     override open var tintColor: UIColor!{
         didSet{
             imageView.tintColor = tintColor

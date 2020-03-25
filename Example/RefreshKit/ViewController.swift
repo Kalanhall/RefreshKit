@@ -23,7 +23,8 @@ class ViewController: UIViewController {
         header.tintColor = .red
         header.textLabel.font = UIFont.systemFont(ofSize: 12)
         header.imageRenderingWithTintColor = true
-
+        header.refreshHeight = 20
+        header.layer.borderWidth = 1
         self.tableView.handleRefreshHeader(with: header, container: self) { [weak self] in
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
                 self?.tableView.switchRefreshHeader(to: .normal(.none, 0))

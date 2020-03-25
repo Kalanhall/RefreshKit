@@ -80,6 +80,9 @@ open class DefaultRefreshFooter:UIView, RefreshableFooter{
     public static func footer()-> DefaultRefreshFooter{
         return DefaultRefreshFooter()
     }
+    
+    public var refreshHeight: CGFloat = RefreshKitConst.defaultFooterHeight
+    
     #if swift(>=4.2)
     public let indicator:UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)
     #else
@@ -144,7 +147,7 @@ open class DefaultRefreshFooter:UIView, RefreshableFooter{
     
 // MARK: - Refreshable  -
     open func heightForFooter() -> CGFloat {
-        return RefreshKitConst.defaultFooterHeight
+        return refreshHeight
     }
     open func didBeginRefreshing() {
         self.isUserInteractionEnabled = true
