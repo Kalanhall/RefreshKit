@@ -61,7 +61,10 @@ class CustomRefreshHeader : UIView, RefreshableHeader{
         imageView.stopAnimating()
         imageView.image = UIImage(named: "loading15")
     }
-    
+}
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     // 使用方式
     // 默认
     let header = DefaultRefreshHeader.header()
@@ -82,7 +85,7 @@ class CustomRefreshHeader : UIView, RefreshableHeader{
             self?.tableView.switchRefreshFooter(to: .normal)
         }
     };
-    
+
     // 自定义
     let header = CustomRefreshHeader(frame: CGRect(x: 0,y: 0,width: self.view.bounds.width,height: 50))
         self.tableView.handleRefreshHeader(with: header,container:self) { [weak self] in
@@ -92,7 +95,6 @@ class CustomRefreshHeader : UIView, RefreshableHeader{
     };
 
     self.tableView.switchRefreshHeader(to: .refreshing)
-}
 ```
 
 ## Requirements

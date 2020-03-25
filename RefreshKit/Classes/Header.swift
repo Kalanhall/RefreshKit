@@ -180,25 +180,27 @@ open class DefaultRefreshHeader: UIView, RefreshableHeader {
     }
     
     open func didBeginHideAnimation(_ result:RefreshResult) {
-        indicator.stopAnimating()
         imageView.transform = CGAffineTransform.identity
         imageView.isHidden = false
         switch result {
         case .success:
+            indicator.stopAnimating()
             textLabel.text = textDic[.refreshSuccess]
             imageView.image = UIImage.rk_image(named: "success", in: Bundle(for: DefaultRefreshHeader.self))
         case .failure:
+            indicator.stopAnimating()
             textLabel.text = textDic[.refreshFailure]
             imageView.image = UIImage.rk_image(named: "failure", in: Bundle(for: DefaultRefreshHeader.self))
         case .none:
-            textLabel.text = textDic[.pullToRefresh]
-            imageView.image = UIImage.rk_image(named: "arrow_down", in: Bundle(for: DefaultRefreshHeader.self))
+            textLabel.text = textDic[.refreshing]
+            imageView.isHidden = true
         }
-        if imageRenderingWithTintColor{
+        if imageRenderingWithTintColor {
             imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
         }
     }
     open func didCompleteHideAnimation(_ result:RefreshResult) {
+        indicator.stopAnimating()
         textLabel.text = textDic[.pullToRefresh]
         self.isHidden = true
         imageView.image = UIImage.rk_image(named: "arrow_down", in: Bundle(for: DefaultRefreshHeader.self))
